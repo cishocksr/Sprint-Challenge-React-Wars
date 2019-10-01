@@ -21,15 +21,21 @@ const Card = styled.div`
   margin-bottom: 25px;
 `;
 
-export default function CharacterCard(props) {
+export default function CharacterCard({
+  name,
+  gender,
+  height,
+  eyeColor,
+  weight
+}) {
   return (
     <Wrapper>
       <Card>
-        <h1>Name: {props.name}</h1>
-        <h3>Gender: {props.gender}</h3>
-        <h5>Height: {props.height}</h5>
-        <p>Weight: {props.weight}</p>
-        <p>Eye Color: {props.eyeColor}</p>
+        <h1>Name:{name} </h1>
+        <h3>Gender:{gender} </h3>
+        <h5>Height:{height} </h5>
+        <p>Weight:{eyeColor} </p>
+        <p>Eye Color:{weight} </p>
       </Card>
     </Wrapper>
   );
