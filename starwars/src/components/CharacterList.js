@@ -1,38 +1,37 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
-import { Container, Row, Col } from "reactstrap";
+// import { Container, Row } from "reactstrap";
 
 export default function CharacterList(props) {
   const [character, setCharacter] = useState([]);
-  console.log(setCharacter);
+  console.log(character);
 
   useEffect(() => {
     axios
       .get("https://swapi.co/api/people")
-      .then(response => {
-        setCharacter(response.data.results);
+      .then(result => {
+        setCharacter(result.data.results);
       })
       .catch(error => {
         console.log(error);
       });
-  });
+  }, []);
 
   return (
-    <Container>
-      <Row>
-        {character.map(char => {
-          return (
-            <Col>
-              <CharacterCard
-                name={char.name}
-                birthYear={char.birth_year}
-                gender={char.gender}
-              />
-            </Col>
-          );
-        })}
-      </Row>
-    </Container>
+    <div>
+      {character.map((char, index) => {
+        return (
+          <CharacterCard
+            key={index}
+            name={char.name}
+            gender={char.gender}
+            height={char.height}
+            weight={char.mass}
+            eyeColor={char.eye_color}
+          />
+        );
+      })}
+    </div>
   );
 }

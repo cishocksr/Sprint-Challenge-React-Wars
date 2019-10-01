@@ -1,30 +1,54 @@
 import React from "react";
+// import { Card, CardText, CardBody, CardTitle, Col } from "reactstrap";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 `;
 
 const Card = styled.div`
-  background-color: blue;
-  width: 300px;
-  padding: 10px;
-  margin-bottom: 10px;
+  background: #786464;
+  color: black;
+  width: 450px;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
 `;
 
-const CharacterCard = props => {
+export default function CharacterCard(props) {
   return (
     <Wrapper>
       <Card>
-        <h1>{props.name}</h1>
-        <p>{props.birth_year}</p>
-        console.log(props.birthYear);
-        <p>{props.gender}</p>
+        <h1>Name: {props.name}</h1>
+        <h3>Gender: {props.gender}</h3>
+        <h5>Height: {props.height}</h5>
+        <p>Weight: {props.weight}</p>
+        <p>Eye Color: {props.eyeColor}</p>
       </Card>
     </Wrapper>
   );
-};
+}
 
-export default CharacterCard;
+// export default function CharacterCard(props) {
+//   return (
+//     <Col xs="6" lg="4" height="100%">
+//       <Card height="100%">
+//         <CardBody height="65%">
+//           <CardTitle>{props.name}</CardTitle>
+//           <hr />
+//           <CardText>{props.gender}</CardText>
+//           <hr />
+//           <CardText height="100%">Height: {props.height}</CardText>
+//           <small>Weight: {props.weight}</small>
+//           <small>Eye Color: {props.eyeColor}</small>
+//         </CardBody>
+//       </Card>
+//     </Col>
+//   );
+// }
